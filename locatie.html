@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locatie - Kallpa</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <div class="top-bar"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+             <a href="index.html" class="logo">
+                <img src="img/logo.png" alt="Kallpa Logo" style="height: 65px; width: auto;">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="methode.html">Methode</a>
+                <a href="docente.html">Over onze docente</a>
+                <a href="cursus.html" class="highlight">Cursus Spaans</a>
+                <a href="locatie.html"class="active">Locatie </a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1 style="margin-bottom: 20px;">Locatie</h1>
+        
+        <p style="margin-bottom: 30px; font-size: 1.1rem; color: #555;">
+            De lessen worden gegeven op het volgende adres:
+            </p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 20px;">
+            
+            <div style="flex: 1; min-width: 300px; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-left: 5px solid #4a148c;">
+                <h3 style="color: #4a148c; margin-bottom: 15px;">Adres leslocatie</h3>
+                
+                <p style="font-weight: bold; font-size: 1.1rem; margin-bottom: 5px;">Pinksterbloem 44</p>
+                <p style="margin-bottom: 5px;">2631 SB Nootdorp</p>
+                <p style="margin-bottom: 20px; color: #666; font-style: italic;">(vlakbij Den Haag)</p>
+
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+                <h3 style="color: #4a148c; margin-bottom: 15px; font-size: 1rem;">Privélessen op locatie</h3>
+                <p style="color: #555; line-height: 1.6;">
+                    Privélessen kunnen ook plaatsvinden bij de cursist thuis of op het werk, mits dit in Nootdorp of de directe omgeving is.
+                </p>
+            </div>
+
+            <div style="flex: 2; min-width: 300px;">
+                <iframe 
+                    width="100%" 
+                    height="400" 
+                    id="gmap_canvas" 
+                    src="https://maps.google.com/maps?q=Pinksterbloem+44+2631+SB+Nootdorp&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    style="border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                </iframe>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Kallpa.nl - Alle rechten voorbehouden.</p>
+    </footer>
+<div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+        <p>
+            <strong>Wij gebruiken cookies</strong> 🍪 <br>
+            Kallpa.nl gebruikt cookies om uw ervaring te verbeteren. 
+            <a href="privacy.html" style="text-decoration: underline;">Meer informatie</a>.
+        </p>
+        <div class="cookie-buttons">
+            <button id="cookie-reject" class="btn-cookie btn-outline">Weigeren</button>
+            <button id="cookie-accept" class="btn-cookie btn-fill">Accepteren</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Comprobar si el usuario ya aceptó antes
+    if (!localStorage.getItem('kallpa_cookies_accepted')) {
+        document.getElementById('cookie-banner').style.display = 'block';
+    }
+
+    // Al hacer clic en "Accepteren"
+    document.getElementById('cookie-accept').addEventListener('click', function() {
+        localStorage.setItem('kallpa_cookies_accepted', 'true'); // Guardamos la decisión
+        document.getElementById('cookie-banner').style.display = 'none'; // Ocultamos el banner
+    });
+
+    // Al hacer clic en "Weigeren"
+    document.getElementById('cookie-reject').addEventListener('click', function() {
+        document.getElementById('cookie-banner').style.display = 'none'; // Solo ocultamos
+    });
+</script>
+</body>
+</html>

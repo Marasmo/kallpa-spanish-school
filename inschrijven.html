@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inschrijven - Kallpa</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <div class="top-bar"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/logo.png" alt="Kallpa Logo" style="height: 75px; width: auto;">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="methode.html">Methode</a>
+                <a href="docente.html">Over onze docente</a>
+                <a href="cursus.html" class="highlight">Cursus Spaans</a>
+                <a href="locatie.html">Locatie</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="form-box">
+            <h1 style="text-align: center; margin-bottom: 10px;">Inschrijven</h1>
+            <p style="text-align: center; margin-bottom: 30px; color: #666;">
+                Vul het formulier in om u aan te melden voor een cursus.
+            </p>
+            
+            <form action="#" method="post">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Voornaam</label>
+                        <input type="text" name="voornaam" placeholder="Uw voornaam" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Achternaam</label>
+                        <input type="text" name="achternaam" placeholder="Uw achternaam" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>E-mailadres</label>
+                    <input type="email" name="email" placeholder="naam@voorbeeld.nl" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Telefoonnummer</label>
+                    <input type="tel" name="telefoon" placeholder="06 12345678">
+                </div>
+
+                <div class="form-group">
+                    <label>Welke cursus wilt u volgen?</label>
+                    <select name="cursus">
+                        <option value="">-- Maak een keuze --</option>
+                        <optgroup label="Volwassenen (Adultos)">
+                            <option value="groepsles_volw">Groepsles</option>
+                            <option value="duoles_volw">Duoles</option>
+                            <option value="priveles_volw">Privéles</option>
+                        </optgroup>
+                        <optgroup label="Kinderen (Niños)">
+                            <option value="groepsles_kind">Groepsles Kind</option>
+                            <option value="duoles_kind">Duoles Kind</option>
+                            <option value="priveles_kind">Privéles Kind</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Opmerkingen of Vragen</label>
+                    <textarea name="opmerkingen" rows="5" placeholder="Heeft u nog specifieke wensen?"></textarea>
+                </div>
+
+                <div class="form-group" style="display: flex; align-items: flex-start; gap: 10px; margin-top: 20px; background-color: #f9f9f9; padding: 15px; border-radius: 5px;">
+                    <input type="checkbox" id="voorwaarden" name="voorwaarden" required style="width: auto; margin-top: 5px; cursor: pointer;">
+                    
+                    <label for="voorwaarden" style="font-size: 0.9rem; color: #333; cursor: pointer; margin-bottom: 0;">
+                        Door aanmelding geeft de cursist te kennen de algemene voorwaarden te accepteren.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; margin-top: 20px;">
+                    Versturen
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Kallpa.nl - Alle rechten voorbehouden.</p>
+    </footer>
+<div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+        <p>
+            <strong>Wij gebruiken cookies</strong> 🍪 <br>
+            Kallpa.nl gebruikt cookies om uw ervaring te verbeteren. 
+            <a href="privacy.html" style="text-decoration: underline;">Meer informatie</a>.
+        </p>
+        <div class="cookie-buttons">
+            <button id="cookie-reject" class="btn-cookie btn-outline">Weigeren</button>
+            <button id="cookie-accept" class="btn-cookie btn-fill">Accepteren</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Comprobar si el usuario ya aceptó antes
+    if (!localStorage.getItem('kallpa_cookies_accepted')) {
+        document.getElementById('cookie-banner').style.display = 'block';
+    }
+
+    // Al hacer clic en "Accepteren"
+    document.getElementById('cookie-accept').addEventListener('click', function() {
+        localStorage.setItem('kallpa_cookies_accepted', 'true'); // Guardamos la decisión
+        document.getElementById('cookie-banner').style.display = 'none'; // Ocultamos el banner
+    });
+
+    // Al hacer clic en "Weigeren"
+    document.getElementById('cookie-reject').addEventListener('click', function() {
+        document.getElementById('cookie-banner').style.display = 'none'; // Solo ocultamos
+    });
+</script>
+</body>
+</html>
