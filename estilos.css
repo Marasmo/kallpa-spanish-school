@@ -1,0 +1,427 @@
+/* css/estilos.css */
+
+/* --- RESET BÁSICO --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9f9f9; color: #333; line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* --- BARRA SUPERIOR Y NAVEGACIÓN --- */
+.top-bar { background-color: #ff9800; height: 4px; width: 100%; }
+
+.navbar { 
+    background-color: #4a148c; /* FONDO MORADO OSCURO */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+}
+
+.nav-container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0.8rem 1rem; /* Un poco menos de padding vertical para que no sea enorme */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+/* Enlaces del menú */
+.nav-links { 
+    display: flex; 
+    gap: 10px; 
+    align-items: center;
+}
+
+.nav-links a { 
+    font-size: 0.95rem; 
+    font-weight: 500; 
+    color: white; /* LETRAS BLANCAS */
+    transition: all 0.3s ease; 
+    padding: 8px 16px; 
+    border-radius: 20px; 
+}
+
+/* Efecto al pasar el mouse */
+.nav-links a:hover { 
+    background-color: rgba(255, 255, 255, 0.15); /* Fondo blanco semitransparente */
+    color: white; 
+}
+
+/* El botón de la página actual (ACTIVO) */
+.nav-links a.active { 
+    background-color: white; /* Pastilla Blanca */
+    color: #4a148c;          /* Texto Morado */
+    font-weight: bold; 
+}
+
+/* El botón destacado (Cursus Spaans) */
+.nav-links a.highlight { 
+    color: #ffcc80; /* Naranja claro para que se lea bien sobre morado */
+    font-weight: bold;
+}
+
+/* Si el destacado está activo */
+.nav-links a.highlight.active {
+    background-color: #ffcc80;
+    color: #4a148c;
+}
+
+/* --- SECCIONES COMUNES --- */
+.container { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; }
+.btn { display: inline-block; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+.btn-primary { background-color: #4a148c; color: white; }
+.btn-primary:hover { background-color: #6a1b9a; }
+.btn-secondary { background-color: white; border: 1px solid #ccc; color: #333; }
+.btn-secondary:hover { background-color: #eee; }
+.btn-success { background-color: #2e7d32; color: white; width: 100%; text-align: center; }
+
+/* --- HERO (PORTADA) --- */
+.hero {
+    display: flex;
+    align-items: center; /* Alinea texto e imagen al centro verticalmente */
+    justify-content: space-between;
+    gap: 40px; /* Espacio entre el texto y la foto */
+    
+    /* AQUÍ ESTÁ EL TRUCO PARA EL ESPACIO */
+    /* Reduce el padding de arriba y abajo */
+    padding: 30px 20px; /* 30px arriba/abajo, 20px lados */
+    
+    /* Opcional: Si sientes que la pantalla es muy alta, ajusta la altura mínima */
+    min-height: auto; /* Dejarlo en auto evita que fuerce espacios vacíos */
+}
+.hero-text { flex: 1; }
+.hero-text h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    color: #333;
+    margin-bottom: 20px;
+    
+    /* NUEVO: Quitamos el margen superior para que suba */
+    margin-top: 0; 
+}
+.hero-text span { color: #4a148c; }
+.hero-buttons { margin-top: 2rem; display: flex; gap: 10px; }
+/* BUSCA ESTA PARTE EN TU CSS Y REEMPLÁZALA */
+
+.hero-img {
+    flex: 1;
+    /* NUEVO: Fuerza una forma cuadrada perfecta */
+    aspect-ratio: 1 / 1;
+    /* Opcional: Limita el ancho máximo para que no se vea enorme en pantallas gigantes */
+    max-width: 550px; 
+    /* Centra la imagen si sobra espacio a los lados */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img img {
+    width: 100%;
+    height: 100%;
+    /* Asegura que la imagen llene el cuadrado sin deformarse */
+    object-fit: cover; 
+    /* Tus bordes redondeados originales */
+    border-radius: 10px 50px 10px 50px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* --- TARJETAS DE PRECIOS (CURSUS) --- */
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.card { background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow: hidden; border-top: 4px solid #ccc; padding: 2rem; display: flex; flex-direction: column; }
+.card.green { border-color: #2e7d32; }
+.card.purple { border-color: #4a148c; transform: scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.15); } /* Destacado */
+.card.blue { border-color: #1565c0; }
+.price { font-size: 2.5rem; font-weight: bold; margin: 1rem 0; color: #333; }
+.card ul li { margin-bottom: 10px; color: #555; }
+
+/* --- PERFIL (DOCENTE) --- */
+.profile-container {
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.profile-img {
+    width: 40%;
+    background-color: #eee;
+    /* Asegura que el contenedor tenga una altura */
+    min-height: 400px; 
+}
+
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto ya lo tenías */
+    
+    /* --- ¡ESTA ES LA LÍNEA NUEVA! --- */
+    object-position: top center; 
+    /* Esto alinea la parte superior de la foto con el borde superior del marco */
+}
+
+/* --- FORMULARIOS --- */
+.form-box { max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: 500; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+.form-row { display: flex; gap: 1rem; }
+.form-row .form-group { flex: 1; }
+
+/* --- FOOTER --- */
+footer { background-color: #222; color: white; text-align: center; padding: 2rem; margin-top: 3rem; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* En móvil simplificado para este ejemplo */
+    .hero, .profile-container { flex-direction: column; }
+    .profile-img, .profile-info { width: 100%; }
+}
+/* Estilos para la página Methode */
+.quote-box {
+    background-color: #f3e5f5; /* Fondo morado muy suave */
+    border-left: 5px solid #4a148c; /* Borde lateral morado */
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.quote-text-es {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 0.5rem;
+}
+
+.quote-text-nl {
+    color: #4a148c;
+    font-weight: 500;
+}
+
+.quote-author {
+    text-align: right;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 1rem;
+}
+
+.highlight-box {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.highlight-title {
+    color: #4a148c;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* Rellena el espacio */
+    object-position: top center; /* <--- ESTO ES LO QUE ARREGLA EL CORTE DE LA FRENTE */
+}
+.profile-info {
+    width: 60%;       /* Ocupa el resto del ancho */
+    padding: 3rem;    /* ESTO ES LA CLAVE: da espacio alrededor del texto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el texto verticalmente */
+}
+
+/* Ajuste para celulares (para que no se vea apretado en pantallas chicas) */
+@media (max-width: 768px) {
+    .profile-info {
+        width: 100%;
+        padding: 2rem;
+    }
+}
+/* --- AVISO DE COOKIES --- */
+.cookie-banner {
+    display: none; /* Oculto por defecto, el JS lo activa si es necesario */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white; /* Fondo blanco limpio */
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1); /* Sombra suave hacia arriba */
+    z-index: 1000; /* Para que esté siempre encima de todo */
+    padding: 20px;
+    font-size: 0.9rem;
+    border-top: 4px solid #4a148c; /* Línea morada decorativa */
+}
+
+.cookie-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.cookie-content p {
+    margin: 0;
+    color: #333;
+    line-height: 1.5;
+    flex: 1; /* El texto ocupa el espacio disponible */
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Botones pequeños específicos para el banner */
+.btn-cookie {
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-fill {
+    background-color: #4a148c;
+    color: white;
+    border: none;
+}
+.btn-fill:hover {
+    background-color: #2c0b55;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid #999;
+    color: #666;
+}
+.btn-outline:hover {
+    border-color: #333;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* En móviles: poner los botones debajo del texto */
+@media (max-width: 768px) {
+    .cookie-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .cookie-buttons {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    .hero {
+        flex-direction: column; /* Pone el texto arriba y la foto abajo */
+        padding-top: 40px; /* Un poco más de aire en móvil */
+        text-align: center;
+    }
+}
+header.container {
+    margin-top: 0;
+    padding-top: 20px; /* Un pequeño respiro solamente */
+}
+/* --- BOTÓN FLOTANTE DE WHATSAPP --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 2000; /* Para que flote encima de todo (incluso del aviso de cookies) */
+    transition: all 0.3s ease;
+    text-decoration: none; /* Quitar subrayado del enlace */
+}
+
+.whatsapp-float:hover {
+    background-color: #20b858;
+    transform: scale(1.1); /* Efecto de crecimiento al pasar el mouse */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+/* Icono SVG dentro del botón */
+.whatsapp-float svg {
+    width: 35px;
+    height: 35px;
+    fill: white;
+}
+/* --- DISEÑO TEXTO + FOTO (MÉTODO) --- */
+.content-split {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.content-split .text-side {
+    flex: 1; /* El texto ocupa el espacio disponible */
+}
+
+.content-split .image-side {
+    flex: 1; /* La imagen ocupa el mismo espacio */
+    min-width: 300px;
+}
+
+.content-split .image-side img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    /* Un pequeño giro para que se vea estilo "foto polaroid" informal */
+    transform: rotate(2deg); 
+    transition: transform 0.3s;
+}
+
+.content-split .image-side img:hover {
+    transform: rotate(0deg) scale(1.02); /* Se endereza al pasar el mouse */
+}
+
+/* En móviles, poner uno debajo del otro */
+@media (max-width: 768px) {
+    .content-split {
+        flex-direction: column-reverse; /* Foto arriba, texto abajo (o quita -reverse para al revés) */
+    }
+}
+/* --- HERO SECTION (PORTADA) --- */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    /* CAMBIO 1: Reducimos el padding vertical de 30px a 20px */
+    padding: 20px; 
+    /* Asegura que la altura no fuerce el scroll */
+    min-height: auto;
+}
+
+/* ... otras reglas ... */
+
+.hero-img {
+    flex: 1;
+    aspect-ratio: 1 / 1;
+    /* CAMBIO 2: Reducimos el ancho máximo de 550px a 500px.
+       Al ser cuadrada, esto también reducirá su altura automáticamente. */
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
